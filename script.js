@@ -16,10 +16,17 @@ const adviceArray = [
 
 const button = document.getElementById('getAdviceBtn');
 const adviceText = document.getElementById('advice');
+const body = document.body;
+
+const sound = new Audio('https://www.soundjay.com/button/beep-07.wav');  // Заменить на свой звук
 
 button.addEventListener('click', () => {
     const randomIndex = Math.floor(Math.random() * adviceArray.length);
     adviceText.textContent = adviceArray[randomIndex];
 
     adviceText.classList.add("show");
+
+    sound.play();
+
+    body.style.animation = "backgroundChange 2s infinite";
 });
